@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\TeamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
+//--------------halaman frontend------------------
 Route::get('/', function () {
     return view('frontend.home');
 });
@@ -38,16 +40,13 @@ Route::get('/services', function () {
     return view('frontend.services');
 });
 
-Route::get('/team', function () {
-    return view('frontend.team');
-});
-
 Route::get('/cp', function () {
     return view('frontend.contact');
 });
 
+Route::get('/team', [TeamController::class, 'index']);
 
-// day1
+//-------------latihan dasar2 route----------------
 Route::get('/salam', function () {
     return '<h3>Selamat Belajar Laravel Framework</h3>';
 });
@@ -66,15 +65,15 @@ Route::get('/nilai', function () {
 
 Route::get('/staff',[StaffController::class,'dataStaff']);
 
-//========= Backend ===========
+//--------------halaman backend------------------
 Route::get('/dashboard', function () {
-  return view('backend.dashboard');
+    return view('backend.dashboard');
 });
 
 Route::get('/contact', function () {
-  return view('backend.contact');
+    return view('backend.contact');
 });
 
 Route::get('/profile', function () {
-  return view('backend.profile');
+    return view('backend.profile');
 });
